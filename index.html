@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة التحويل الخارجي - جامعة الملك سعود بن عبدالعزيز للعلوم الصحية</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <img src="university_logo.png" alt="شعار الجامعة" class="logo">
+                <div class="header-text">
+                    <h1>جامعة الملك سعود بن عبدالعزيز للعلوم الصحية</h1>
+                    <h2>بوابة التحويل الخارجي</h2>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search Section -->
+            <section id="search-section" class="section">
+                <div class="card">
+                    <h3>الاستعلام عن طلب التحويل</h3>
+                    <form id="search-form" class="search-form">
+                        <div class="form-group">
+                            <label for="student-id">رقم الهوية الوطنية:</label>
+                            <input type="text" id="student-id" name="student-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="application-number">رقم الطلب:</label>
+                            <input type="text" id="application-number" name="application-number" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">استعلام</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="section hidden">
+                <div class="card">
+                    <h3>نتيجة الاستعلام</h3>
+                    <div id="student-info" class="student-info">
+                        <div class="info-row">
+                            <span class="label">اسم الطالبة:</span>
+                            <span class="value">نوف بنت محمد بن فرحان التركي</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">المؤهل:</span>
+                            <span class="value">بكالوريوس</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">التخصص:</span>
+                            <span class="value">تمريض - مسار التخصصات الصحية</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label">حالة الطلب:</span>
+                            <span class="value status-accepted">مقبول</span>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-required">
+                        <h4>مطلوب سداد الرسوم</h4>
+                        <p>يجب سداد مبلغ <strong>2000 ريال سعودي</strong> لتسجيل المقررات وإصدار الرقم الجامعي</p>
+                        <button id="show-invoice-btn" class="btn btn-secondary">عرض فاتورة السداد</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Invoice Section -->
+            <section id="invoice-section" class="section hidden">
+                <div class="card">
+                    <h3>فاتورة السداد</h3>
+                    <div class="invoice">
+                        <div class="invoice-header">
+                            <h4>تفاصيل الدفع</h4>
+                        </div>
+                        
+                        <div class="invoice-details">
+                            <div class="info-row">
+                                <span class="label">اسم الطالبة:</span>
+                                <span class="value">نوف بنت محمد بن فرحان التركي</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">المبلغ المطلوب:</span>
+                                <span class="value amount">2000 ريال سعودي</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">الغرض:</span>
+                                <span class="value">تسجيل المقررات وإصدار الرقم الجامعي</span>
+                            </div>
+                        </div>
+
+                        <div class="bank-details">
+                            <h4>بيانات الحساب البنكي</h4>
+                            <div class="bank-info">
+                                <div class="info-row">
+                                    <span class="label">البنك:</span>
+                                    <span class="value">البنك الراجحي</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">رقم الحساب:</span>
+                                    <span class="value account-number">101000010006086685842</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">الآيبان:</span>
+                                    <span class="value iban">SA7780000101608016685842</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="upload-section">
+                            <h4>إرفاق إيصال السداد</h4>
+                            <div class="upload-area" id="upload-area">
+                                <input type="file" id="receipt-upload" accept="image/*,.pdf" hidden>
+                                <div class="upload-content">
+                                    <div class="upload-icon">📄</div>
+                                    <p>اضغط هنا لإرفاق إيصال السداد</p>
+                                    <small>يُقبل ملفات الصور و PDF</small>
+                                </div>
+                            </div>
+                            <div id="uploaded-file" class="uploaded-file hidden">
+                                <span id="file-name"></span>
+                                <button id="remove-file" class="btn-remove">×</button>
+                            </div>
+                        </div>
+
+                        <div class="invoice-actions">
+                            <button id="submit-payment" class="btn btn-primary">تأكيد السداد</button>
+                            <button id="print-invoice" class="btn btn-secondary">طباعة الفاتورة</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Success Section -->
+            <section id="success-section" class="section hidden">
+                <div class="card success-card">
+                    <div class="success-icon">✅</div>
+                    <h3>تم تأكيد السداد بنجاح</h3>
+                    <p>تم استلام إيصال السداد وسيتم مراجعته خلال 24 ساعة</p>
+                    <p>سيتم التواصل معك عبر الهاتف أو البريد الإلكتروني لاستكمال إجراءات التسجيل</p>
+                    <button id="new-search" class="btn btn-primary">استعلام جديد</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 جامعة الملك سعود بن عبدالعزيز للعلوم الصحية - جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
