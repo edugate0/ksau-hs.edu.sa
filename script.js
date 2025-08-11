@@ -16,7 +16,7 @@ const newSearchBtn = document.getElementById('new-search');
 
 // Sample student data (in real application, this would come from a database)
 const studentData = {
-    '1234567890': {
+    '1140959790': {
         name: 'نوف بنت محمد بن فرحان التركي',
         qualification: 'بكالوريوس',
         major: 'تمريض - مسار التخصصات الصحية',
